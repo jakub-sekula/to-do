@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .sidebar-icon {
+    @apply relative flex items-center justify-center h-12 w-12 my-2 mx-auto bg-gray-800 text-slate-100 hover:bg-cyan-600 rounded-3xl hover:rounded-xl transition-all duration-300 ease-linear;
+  }
+
+  .sidebar-tooltip {
+    @apply absolute w-auto p-2 m-2 min-w-max left-14 rounded-md shadow-md text-white bg-gray-900 text-xs font-bold transition-all scale-0 duration-300 origin-left select-none
+  }
+
+  .button {
+    @apply
+    text-2xl font-semibold
+    w-auto px-16 py-4 rounded-lg
+    transition-all duration-[50ms] ease-linear 
+    hover:shadow-xl hover:shadow-slate-50 
+  }
+
+    .red {
+      @apply
+      text-white
+      bg-red-600 hover:bg-red-500 
+      active:bg-red-700 }
+      .cyan {
+        @apply
+        text-white
+        bg-cyan-600 hover:bg-cyan-500 
+        active:bg-cyan-700 }
+        .green {
+          @apply
+          text-white
+          bg-green-600 hover:bg-green-500 
+          active:bg-green-700 }
+}
