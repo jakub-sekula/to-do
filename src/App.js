@@ -38,6 +38,9 @@ function App({ initialTasks }) {
       setFilter={setFilter}
     />
   ));
+
+  const activeTasks = tasks.filter(task => task.completed === false).length
+
   function toggleTaskCompleted(id) {
     const updatedTasks = tasks.map((task) => {
       if (id === task.id) {
@@ -53,11 +56,11 @@ function App({ initialTasks }) {
     setTasks(remainingTasks);
   }
 
-  const tasksNoun = taskList.length !== 1 ? "tasks" : "task";
+  const tasksNoun = activeTasks !== 1 ? "tasks" : "task";
 
   const tasksRemaining = tasks.filter((task) => task.completed === false);
 
-  const headingText = `You currently have ${tasksRemaining.length} ${tasksNoun} remaining`;
+  const headingText = `You currently have ${activeTasks} ${tasksNoun} remaining`;
 
   function addTask(name) {
     if (name === "") return;
@@ -83,7 +86,7 @@ function App({ initialTasks }) {
           <h1 className="font-bold text-4xl text-slate-800 self-start mb-2">
             Your to-do list
           </h1>
-          <h2 id="list-heading">{taskList.length !== 0 ? headingText : 'There are no tasks remaining. Well done!'}</h2>
+          <h2 id="list-heading">{activeTasks !== 0 ? headingText : 'There are no tasks remaining. Well done!'}</h2>
         </div>
         <Form addTask={addTask} />
 
